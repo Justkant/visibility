@@ -354,6 +354,7 @@ a.big-button {
     color: #ffffff;
     background-color: #e31519;
     border: none;
+    margin-top: 10px;
 }
 
 .chat {
