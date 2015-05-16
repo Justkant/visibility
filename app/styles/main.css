@@ -283,13 +283,23 @@ input[type="search"] {
 }
 
 .big-icon.phoneicon {
-    background: url(images/t%EF%BF%BFffc3%EF%BF%BFffa9l.png) no-repeat 10px center;
+    background: url(../images/t%EF%BF%BFffc3%EF%BF%BFffa9l.png) no-repeat 10px center;
     width: 50px;
     height: 56px;
 }
 
 .carLive {
+    height: 264px;
+    width: 100%;
     background: url(../images/blog-roadstr.png) no-repeat 10px center;
+}
+
+.datetime-bloc {
+    width: 249px;
+    height: 63px;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.5);
+    line-height: 63px;
 }
 
 .pure-g {
