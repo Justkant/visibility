@@ -48,7 +48,6 @@ angular.module('visibilityApp')
     $scope.chatOpen = false;
     $scope.msg = '';
     $scope.pushMessage = function() {
-        console.log($scope.msg);
         if ($scope.msg.length > 0) {
             if (!$scope.sinistre.messages) {
                 $scope.sinistre.messages = [];
