@@ -65,8 +65,8 @@
                                         </td>
                                         <td data-ng-if="d.file">
                                             <a class="big-button dlicon"
-                                               target="_blank"
-                                               data-ng-href="d.file.data">
+                                               download="{{ d.file.name }}"
+                                               data-ng-href="{{ d.file.data }}">
                                                 Télécharger le fichier
                                             </a>
                                         </td>
@@ -159,7 +159,7 @@
                                 </td>
                                 <td data-ng-if="d.file">
                                     <a class="big-button dlicon"
-                                       target="_blank"
+                                       download="{{ d.file.name }}"
                                        data-ng-href="{{d.file.data}}">
                                         Télécharger le fichier
                                     </a>
@@ -246,7 +246,7 @@
                                 </td>
                                 <td data-ng-if="d.file">
                                     <a class="big-button dlicon"
-                                       target="_blank"
+                                       download="{{ d.file.name }}"
                                        data-ng-href="{{d.file.data}}">
                                         Télécharger le fichier
                                     </a>
