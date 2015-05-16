@@ -56,12 +56,21 @@ angular.module('visibilityApp')
 
         $scope.newReparationName = '';
         $scope.createNewReparation = function (reparationName)  {
+            if (!$scope.sinistre.reparation) {
+                $scope.sinistre.reparation = [];
+                $scope.sinistre.$save();
+            }
             $scope.sinistre.reparation.push({
                 name: reparationName,
                 validated: false
             });
             $scope.sinistre.$save();
             $scope.newReparationName = '';
+        };
+    
+        $scope.changeState = function(index) {
+            $scope.sinistre.reparation[index].validated = !$scope.sinistre.reparation[index].validated;
+            $scope.sinistre.$save();
         };
 
         $scope.addPicture = function (files) {
@@ -83,6 +92,11 @@ angular.module('visibilityApp')
                 };
                 reader.readAsDataURL(files[0]);
             }
+        };
+    
+        $scope.toggleRdv = function() {
+            $scope.sinistre.close = !$scope.sinistre.close;
+            $scope.sinistre.$save();
         };
 
         $scope.chatOpen = false;
