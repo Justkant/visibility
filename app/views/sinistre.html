@@ -235,7 +235,9 @@
                         <input type="date" name="restdate" value="{{ sinistre.pickup.date }}" data-ng-model="pickupDate">
                         <input type="time" data-ng-model="pickupTime">
                     </div>
-                    <button class="rdv-button" data-ng-click="proposeRdv(pickupDate, pickupTime)"></button>
+                    <div style="text-align: center;">
+                        <button class="rdv-button" data-ng-click="proposeRdv(pickupDate, pickupTime)">PROPOSER LE RENDEZ-VOUS</button>
+                    </div>
                 </div>
                 <div style="text-align: center;">
                     <h4>Rappel des coordonnées du garage :</h4>
@@ -356,7 +358,7 @@
                         <input type="time" value="{{ sinistre.pickup.time }}" readonly>
                     </div>
                     <div style="text-align: center;">
-                        <button data-ng-click="toggleRdv()">
+                        <button data-ng-click="toggleRdv()" class="rdv-button">
                             <span data-ng-if="!sinistre.close">ACCEPTER LE RENDEZ-VOUS</span>
                             <span data-ng-if="sinistre.close">ANNULER LE RENDEZ-VOUS</span>
                         </button>
@@ -366,13 +368,15 @@
                     <h4>Rappel des coordonnées du garage :</h4>
                     <div class="pure-g">
                         <div class="pure-u-1-2">
-                            <div class="big-icon locicon"></div>
+                            <img src="../images/localisation.png">
+                            <br/>
                             <span>58 Rue des Chantiers</span>
                             <br/>
                             <span>78000 Versailles</span>
                         </div>
                         <div class="pure-u-1-2">
-                            <div class="big-icon phoneicon"></div>
+                            <img src="../images/t%EF%BF%BFffc3%EF%BF%BFffa9l.png">
+                            <br/>
                             <span>01.00.00.00.00</span>
                         </div>
                     </div>

@@ -242,7 +242,7 @@ input[type="search"] {
     text-align: left;
     text-decoration: none;
     display: block;
-    line-height: 51px;
+    /* line-height: 51px; */
 }
 
 .big-button.dlicon {
@@ -277,18 +277,6 @@ input[type="search"] {
 
 .big-icon {
     text-align: center;
-}
-
-.big-icon.locicon {
-    height: 51px;
-    width: 50px;
-    background: url(../images/localisation.png) no-repeat 10px center;
-}
-
-.big-icon.phoneicon {
-    background: url(../images/t%EF%BF%BFffc3%EF%BF%BFffa9l.png) no-repeat 10px center;
-    width: 50px;
-    height: 56px;
 }
 
 .carLive {
@@ -343,7 +331,10 @@ input[type="search"] {
 }
 
 .rdv-button {
-    
+    background-color: #e31519;
+    height: 25px;
+    border: none;
+    color: #ffffff;
 }
 
 .chat {
