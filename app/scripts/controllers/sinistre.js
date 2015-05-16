@@ -26,7 +26,6 @@ angular.module('visibilityApp')
             angular.element('#my-file' + index).trigger('click');
         };
         $scope.triggerPictureUpload = function () {
-            console.log('lol');
             angular.element('#my-picture').trigger('click');
         };
 
@@ -96,6 +95,26 @@ angular.module('visibilityApp')
     
         $scope.toggleRdv = function() {
             $scope.sinistre.close = !$scope.sinistre.close;
+            $scope.sinistre.$save();
+        };
+    
+        $scope.proposeRdv = function(date, time) {
+            if (!$scope.sinistre.pickup) {
+                $scope.sinistre.pickup = {};
+                $scope.sinistre.$save();
+            }
+            
+            var yyyy = date.getFullYear().toString();
+            var mm = (date.getMonth() + 1).toString();
+            var dd  = date.getDate().toString();
+            date = yyyy + '-' + (mm[1] ? mm : '0' + mm[0]) + '-' + (dd[1] ? dd : '0' + dd[0]);
+            
+            var hours = time.getHours().toString();
+            var mins = time.getMinutes().toString();
+            time = (hours[1] ? hours : '0' + hours[0]) + ':' + (mins[1] ? mins : '0' + mins[0]);
+            
+            $scope.sinistre.pickup.date = date;
+            $scope.sinistre.pickup.time = time;
             $scope.sinistre.$save();
         };
 
