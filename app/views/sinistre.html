@@ -64,9 +64,11 @@
                                             </button>
                                         </td>
                                         <td data-ng-if="d.file">
-                                            <button class="big-button dlicon" data-ng-click="dlFile($index)">
+                                            <a class="big-button dlicon"
+                                               target="_blank"
+                                               data-ng-href="d.file.data">
                                                 Télécharger le fichier
-                                            </button>
+                                            </a>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -114,7 +116,9 @@
                             <p>Consultez le rapport établi par l'expert.</p>
                         </div>
                         <div class="pure-1-4">
-                            <button class="big-button dlicon">Télécharger le fichier</button>
+                            <a class="big-button dlicon"
+                               target="_blank"
+                               data-ng-href="sinistre.rapport">Télécharger le fichier</a>
                         </div>
                         <div class="pure-1-4">
                             <button class="big-button seeicon">Voir le fichier</button>
@@ -137,7 +141,7 @@
                     <h4>DEMANDE DE DOCUMENTS</h4>
                     <table class="pure-table pure-table-horizontal">
                         <tbody>
-                            <tr data-ng-repeat="d in sinistre.expertise.docs">
+                            <tr data-ng-repeat="d in sinistre.docs">
                                 <td class="doc" data-ng-class="{ red: !d.file }">
                                     VOTRE {{ d.name.toUpperCase() }}
                                 </td>
@@ -154,9 +158,11 @@
                                     </button>
                                 </td>
                                 <td data-ng-if="d.file">
-                                    <button class="big-button dlicon" data-ng-click="dlFile($index)">
+                                    <a class="big-button dlicon"
+                                       target="_blank"
+                                       data-ng-href="{{d.file.data}}">
                                         Télécharger le fichier
-                                    </button>
+                                    </a>
                                 </td>
                             </tr>
                         </tbody>
@@ -206,7 +212,9 @@
                             <p>Consultez le rapport établi par l'expert.</p>
                         </div>
                         <div class="pure-1-4">
-                            <button class="big-button dlicon">Télécharger le fichier</button>
+                            <a class="big-button dlicon"
+                               target="_blank"
+                               data-ng-href="{{sinistre.rapport}}">Télécharger le fichier</a>
                         </div>
                         <div class="pure-1-4">
                             <button class="big-button seeicon">Voir le fichier</button>
@@ -222,11 +230,14 @@
                                     LE {{ d.name.toUpperCase() }}
                                 </td>
                                 <td>
-                                    <button class="big-button addicon" data-ng-click="triggerUpload($index)">
+                                    <button class="big-button addicon"
+                                            data-ng-click="triggerUpload($index)">
                                         <span data-ng-if="d.file">Remplacer le fichier</span>
                                         <span data-ng-if="!d.file">Joindre le fichier</span>
                                     </button>
-                                    <input type="file" name="my_file" data-ngf-select data-ngf-change="addFile($files, $index)" id="my-file{{$index}}">
+                                    <input type="file" name="my_file"
+                                           data-ngf-select data-ngf-change="addFile($files, $index)"
+                                           id="my-file{{$index}}">
                                 </td>
                                 <td data-ng-if="d.file">
                                     <button class="big-button seeicon">
@@ -234,9 +245,11 @@
                                     </button>
                                 </td>
                                 <td data-ng-if="d.file">
-                                    <button class="big-button dlicon" data-ng-click="dlFile($index)">
+                                    <a class="big-button dlicon"
+                                       target="_blank"
+                                       data-ng-href="{{d.file.data}}">
                                         Télécharger le fichier
-                                    </button>
+                                    </a>
                                 </td>
                             </tr>
                         </tbody>

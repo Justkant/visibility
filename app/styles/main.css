@@ -359,7 +359,7 @@ input[type="search"] {
     background: #cccccc;
     bottom: -262px;
     position: fixed;
-    right: 48px;
+    right: 50px;
     transition: bottom 0.1s ease-in-out;
     z-index: 480;
     cursor: default;
@@ -376,7 +376,7 @@ input[type="search"] {
     border: 0;
     border-radius: 10px;
     margin: 0 0 0 5px;
-    padding-left: 10px;x;
+    padding-left: 10px;
 }
 
 .chat-input:focus {

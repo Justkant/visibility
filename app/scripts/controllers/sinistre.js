@@ -36,7 +36,7 @@ angular.module('visibilityApp')
                 var dataURL;
                 reader.onload = function (e) {
                     dataURL = e.target.result;
-                    $scope.sinistre.expertise.docs[index].file = {
+                    $scope.sinistre.docs[index].file = {
                         name: files[0].name,
                         data: dataURL
                     };
