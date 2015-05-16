@@ -15,6 +15,8 @@ input[type='file'] {
     background-size: cover;
     height: 100%;
     width: 100%;
+    z-index: -1;
+    position: fixed;
 }
 
 .sidebar {
@@ -82,10 +84,10 @@ input[type='file'] {
 }
 
 .container {
-    position: fixed;
-    width: 67.8%;
-    left: 319px;
-    top: 57px;
+    position: relative;
+    width: 70%;
+    left: 320px;
+    top: 50px;
 }
 
 .title {
