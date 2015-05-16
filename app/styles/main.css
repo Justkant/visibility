@@ -350,7 +350,9 @@ a.big-button {
 }
 
 .rdv-button {
-
+    color: #ffffff;
+    background-color: #e31519;
+    border: none;
 }
 
 .chat {

@@ -125,6 +125,8 @@ angular.module('visibilityApp')
         $scope.sinistre.pickup.time = time;
         $scope.sinistre.$save();
     };
+    
+    $scope.pick = {date: '', time: ''};
 
     $scope.docname = {text: ''};
     $scope.addDoc = function() {
