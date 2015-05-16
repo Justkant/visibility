@@ -339,7 +339,7 @@ input[type="search"] {
     background: #cccccc;
     bottom: -262px;
     position: fixed;
-    right: 48px;
+    right: 50px;
     transition: bottom 0.1s ease-in-out;
     z-index: 480;
     cursor: default;
