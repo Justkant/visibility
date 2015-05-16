@@ -236,7 +236,7 @@ input[type="search"] {
 .big-button {
     background-color: rgba(255, 255, 255, 0.75);
     color: #e31519;
-    width: 154px;
+    width: 160px;
     height: 51px;
     border: 0;
     margin: 20px;
@@ -244,6 +244,9 @@ input[type="search"] {
     text-align: left;
     text-decoration: none;
     display: block;
+}
+
+a.big-button {
     line-height: 51px;
 }
 
@@ -270,11 +273,13 @@ input[type="search"] {
 .big-button.picturedlicon {
     background: url(../images/Objet-dynamique-vectoriel.png) no-repeat 10px center;
     background-color: rgba(255, 255, 255, 0.75);
+    padding-left: 70px;
 }
 
 .big-button.seepictureicon {
     background: url(../images/seepictureicon.png) no-repeat 10px center;
     background-color: rgba(255, 255, 255, 0.75);
+    padding-left: 70px;
 }
 
 .big-icon {
