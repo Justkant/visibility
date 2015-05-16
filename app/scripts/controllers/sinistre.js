@@ -32,7 +32,6 @@ angular.module('visibilityApp')
                 dataURL = e.target.result;
                 $scope.sinistre.expertise.docs[index].file = {name: files[0].name, data: dataURL};
                 $scope.sinistre.$save();
-                console.log($scope.sinistre);
             };
             reader.readAsDataURL(files[0]);
         }
@@ -44,5 +43,19 @@ angular.module('visibilityApp')
 
     $scope.dlFile = function(index) {
 
+    };
+
+    $scope.chatOpen = false;
+    $scope.msg = '';
+    $scope.pushMessage = function() {
+        console.log($scope.msg);
+        if ($scope.msg.length > 0) {
+            if (!$scope.sinistre.messages) {
+                $scope.sinistre.messages = [];
+            }
+            $scope.sinistre.messages.push({name: $scope.user.name, msg: $scope.msg});
+            $scope.sinistre.$save();
+            $scope.msg = '';
+        }
     };
 });

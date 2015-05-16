@@ -292,3 +292,63 @@ input[type="search"] {
     font-size: 14px;
     font-weight: 400;
 }
+
+.chat {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-color: #cccccc;
+    border-color: #e31519;
+    border-width: 2px;
+    border-style: solid;
+    width: 250px;
+    height: 44px;
+    line-height: 44px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 16px;
+    bottom: 0;
+    position: fixed;
+    right: 48px;
+    z-index: 500;
+    cursor: pointer;
+}
+
+.chat-messages {
+    width: 250px;
+    height: 300px;
+    background: #cccccc;
+    bottom: -262px;
+    position: fixed;
+    right: 48px;
+    transition: bottom 0.1s ease-in-out;
+    z-index: 480;
+    cursor: default;
+}
+
+.chat-messages.open {
+    bottom: 48px;
+}
+
+.chat-input {
+    position: absolute;
+    bottom: 10px;
+    width: 90%;
+    border: 0;
+    border-radius: 10px;
+    margin: 0 0 0 5px;
+    padding-left: 10px;x;
+}
+
+.chat-input:focus {
+    outline-width: 0;
+}
+
+.chat-message {
+    margin: 5px 10px;
+    font-size: 14px;
+    font-weight: 400;
+}
