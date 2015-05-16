@@ -1,9 +1,10 @@
 <div class="background">
     <div class="sidebar">
-        <a href="#/"><div class="logo"></div></a>
+        <a href="#/">
+            <div class="logo"></div>
+        </a>
         <div class="user-block">
-            <div class="userimage"
-                 data-ng-class="{expert: user.type === 0, assure: user.type === 1, garage: user.type === 2}"></div>
+            <div class="userimage" data-ng-class="{expert: user.type === 0, assure: user.type === 1, garage: user.type === 2}"></div>
             <div class="separator"></div>
             <p class="name" data-ng-bind="user.name"></p>
         </div>
@@ -13,31 +14,21 @@
             <div data-ng-switch-when="0">
                 <a class="button-expertise" data-ng-click="x.step = '00'"></a>
                 <div class="first-separator"></div>
-                <a class="button-reparation"
-                   data-ng-class="{on: x.step == '01' || x.step == '02'}"
-                   data-ng-click="x.step = '01'"></a>
+                <a class="button-reparation" data-ng-class="{on: x.step == '01' || x.step == '02'}" data-ng-click="x.step = '01'"></a>
             </div>
             <div data-ng-switch-when="1">
                 <a class="button-expertise" data-ng-click="x.step = '10'"></a>
                 <div class="first-separator"></div>
-                <a class="button-reparation"
-                   data-ng-class="{on: x.step == '11' || x.step == '12'}"
-                   data-ng-click="x.step = '11'"></a>
+                <a class="button-reparation" data-ng-class="{on: x.step == '11' || x.step == '12'}" data-ng-click="x.step = '11'"></a>
                 <div class="second-separator"></div>
-                <a class="button-restitution"
-                   data-ng-class="{on: x.step == '12'}"
-                   data-ng-click="x.step = '12'"></a>
+                <a class="button-restitution" data-ng-class="{on: x.step == '12'}" data-ng-click="x.step = '12'"></a>
             </div>
             <div data-ng-switch-when="2">
                 <a class="button-expertise" data-ng-click="x.step = '20'"></a>
                 <div class="first-separator"></div>
-                <a class="button-reparation"
-                   data-ng-class="{on: x.step == '21' || x.step == '22'}"
-                   data-ng-click="x.step = '21'"></a>
+                <a class="button-reparation" data-ng-class="{on: x.step == '21' || x.step == '22'}" data-ng-click="x.step = '21'"></a>
                 <div class="second-separator"></div>
-                <a class="button-restitution"
-                   data-ng-class="{on: x.step == '22'}"
-                   data-ng-click="x.step = '22'"></a>
+                <a class="button-restitution" data-ng-class="{on: x.step == '22'}" data-ng-click="x.step = '22'"></a>
             </div>
         </div>
     </div>
@@ -151,14 +142,11 @@
                                     VOTRE {{ d.name.toUpperCase() }}
                                 </td>
                                 <td>
-                                    <button class="big-button addicon"
-                                            data-ng-click="triggerUpload($index)">
+                                    <button class="big-button addicon" data-ng-click="triggerUpload($index)">
                                         <span data-ng-if="d.file">Remplacer le fichier</span>
                                         <span data-ng-if="!d.file">Joindre le fichier</span>
                                     </button>
-                                    <input type="file" name="my_file"
-                                           data-ngf-select data-ngf-change="addFile($files, $index)"
-                                           id="my-file{{$index}}">
+                                    <input type="file" name="my_file" data-ngf-select data-ngf-change="addFile($files, $index)" id="my-file{{$index}}">
                                 </td>
                                 <td data-ng-if="d.file">
                                     <button class="big-button seeicon">
@@ -188,8 +176,7 @@
                 </div>
                 <div class="content-row">
                     <h4>VOITURE EN LIVE</h4>
-                    <p>Visualisez les réparations effectuées grâce à notre
-                        concept de visualisation 3D.</p>
+                    <p>Visualisez les réparations effectuées grâce à notre concept de visualisation 3D.</p>
                 </div>
             </div>
         </div>
@@ -235,14 +222,11 @@
                                     LE {{ d.name.toUpperCase() }}
                                 </td>
                                 <td>
-                                    <button class="big-button addicon"
-                                            data-ng-click="triggerUpload($index)">
+                                    <button class="big-button addicon" data-ng-click="triggerUpload($index)">
                                         <span data-ng-if="d.file">Remplacer le fichier</span>
                                         <span data-ng-if="!d.file">Joindre le fichier</span>
                                     </button>
-                                    <input type="file" name="my_file"
-                                           data-ngf-select data-ngf-change="addFile($files, $index)"
-                                           id="my-file{{$index}}">
+                                    <input type="file" name="my_file" data-ngf-select data-ngf-change="addFile($files, $index)" id="my-file{{$index}}">
                                 </td>
                                 <td data-ng-if="d.file">
                                     <button class="big-button seeicon">
@@ -270,13 +254,34 @@
                     <div class="pure-g">
                         <div class="pure-1-2">
                             <h4>SUIVI DES REPARATIONS</h4>
+                            <div class="pure-g" data-ng-repeat="r in sinistre.reparation" style="margin-bottom: 10px;">
+                                <div class="rep" data-ng-if="r.validated"></div>
+                                <div class="rep not" data-ng-if="!r.validated"></div>
+                                <div class="rep-block">
+                                    {{ r.name }}
+                                </div>
+                            </div>
+                            <div class="pure-g">
+                                <div class="rep not" data-ng-if="!r.validated"></div>
+                                <input type="text" class="rep-block" data-ng-model="newReparationName" data-ng-value="newReparationName" style="margin-right: 10px;">
+                                <div class="rep" data-ng-click="createNewReparation(newReparationName)"></div>
+                            </div>
+                        </div>
+                        <div class="pure-1-2">
+                            <h4> REPARATION FINIE </h4>
+                            <button class="big-button picturedlicon" data-ng-click="triggerPictureUpload()">
+                                <span>Joindre les photos</span>
+                            </button>
+                            <input type="file" name="my_picture" data-ngf-select data-ngf-change="addPicture($files)" id="my-picture">
+                            <button class="big-button seepictureicon">
+                                <span>Voir les photos</span>
+                            </button>
                         </div>
                     </div>
                 </div>
                 <div class="content-row">
                     <h4>VOITURE EN LIVE</h4>
-                    <p>Visualisez les réparations effectuées grâce à notre
-                        concept de visualisation 3D.</p>
+                    <p>Visualisez les réparations effectuées grâce à notre concept de visualisation 3D.</p>
                 </div>
             </div>
         </div>
@@ -287,4 +292,3 @@
         </div>
     </div>
 </div>
-
