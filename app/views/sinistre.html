@@ -32,6 +32,17 @@
             </div>
         </div>
     </div>
+    <div class="chat" data-ng-click="chatOpen = !chatOpen">
+        Chat
+    </div>
+    <div class="chat-messages" data-ng-class="{open: chatOpen}">
+        <div class="chat-message"
+             data-ng-repeat="m in sinistre.messages">{{m.name}} : {{m.msg}}</div>
+        <input class="chat-input" type="text"
+               data-ng-model = "msg"
+               data-ng-keydown="$event.which === 13 && pushMessage()"
+               placeholder="Tapez un message..">
+    </div>
     <div data-ng-switch on="x.step">
         <div data-ng-switch-when="00" class="container">
             <div class="title inverted">EXPERTISE</div>
