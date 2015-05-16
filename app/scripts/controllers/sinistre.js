@@ -23,6 +23,10 @@ angular.module('visibilityApp')
     $scope.triggerUpload = function(index) {
         angular.element('#my-file' + index).trigger('click');
     };
+    $scope.triggerPictureUpload = function() {
+        console.log('lol');
+        angular.element('#my-picture').trigger('click');
+    };
 
     $scope.addFile = function(files, index) {
         if (files && files[0]) {
@@ -44,5 +48,35 @@ angular.module('visibilityApp')
 
     $scope.dlFile = function(index) {
 
+    };
+    $scope.newReparationName = '';
+    $scope.createNewReparation = function(reparationName) {
+        $scope.sinistre.reparation.push({
+            name: reparationName,
+            validated: false
+        });
+        $scope.sinistre.$save();
+        $scope.newReparationName = '';
+    };
+    
+    $scope.addPicture = function(files) {
+        if (files && files[0]) {
+            var reader = new FileReader();
+            var dataURL;
+            reader.onload = function(e) {
+                dataURL = e.target.result;
+                if (!$scope.sinistre.pictures) {
+                    $scope.sinistre.pictures = [];
+                    $scope.sinistre.$save();
+                }
+                
+                $scope.sinistre.pictures.push({
+                    name: files[0].name,
+                    data: dataURL
+                });
+                $scope.sinistre.$save();
+            };
+            reader.readAsDataURL(files[0]);
+        }
     };
 });

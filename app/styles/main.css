@@ -262,6 +262,16 @@ input[type="search"] {
     background-color: rgba(255, 255, 255, 0.75);
 }
 
+.big-button.picturedlicon {
+    background: url(../images/Objet-dynamique-vectoriel.png) no-repeat 10px center;
+    background-color: rgba(255, 255, 255, 0.75);
+}
+
+.big-button.seepictureicon {
+    background: url(../images/seepictureicon.png) no-repeat 10px center;
+    background-color: rgba(255, 255, 255, 0.75);
+}
+
 .pure-g {
     letter-spacing: normal;
 }
@@ -279,7 +289,9 @@ input[type="search"] {
 .rep {
     width: 44px;
     height: 41px;
-    background: url(../images/valid.png) no-repeat center;
+    background: url(images/check.png) no-repeat center;
+    background-color: rgba(227, 21, 25, 0.75);
+    margin-top: 4px;
 }
 
 .rep.not {
@@ -291,4 +303,8 @@ input[type="search"] {
     height: 50px;
     font-size: 14px;
     font-weight: 400;
+    background-color: rgba(255, 255, 255, 0.75);
+    text-align: center;
+    line-height: 50px;
+    margin-left: 10px;
 }
