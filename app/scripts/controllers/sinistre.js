@@ -147,6 +147,26 @@ angular.module('visibilityApp')
         $scope.sinistre.$save();
     };
     
+    $scope.proposeExpertRdv = function(date, time) {
+        if (!$scope.sinistre.expert) {
+            $scope.sinistre.expert = {};
+            $scope.sinistre.$save();
+        }
+
+        var yyyy = date.getFullYear().toString();
+        var mm = (date.getMonth() + 1).toString();
+        var dd  = date.getDate().toString();
+        date = yyyy + '-' + (mm[1] ? mm : '0' + mm[0]) + '-' + (dd[1] ? dd : '0' + dd[0]);
+
+        var hours = time.getHours().toString();
+        var mins = time.getMinutes().toString();
+        time = (hours[1] ? hours : '0' + hours[0]) + ':' + (mins[1] ? mins : '0' + mins[0]);
+
+        $scope.sinistre.expert.date = date;
+        $scope.sinistre.expert.time = time;
+        $scope.sinistre.$save();
+    };
+    
     $scope.pick = {date: '', time: ''};
 
     $scope.docname = {text: ''};
