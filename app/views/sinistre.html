@@ -54,7 +54,7 @@
                             <p>Demander des documents à l'assuré ou au garagiste :</p>
                             <table class="pure-table pure-table-horizontal">
                                 <tbody>
-                                    <tr data-ng-repeat="d in sinistre.expertise.docs">
+                                    <tr data-ng-repeat="d in sinistre.docs">
                                         <td class="doc" data-ng-class="{ red: !d.file }">
                                             LE {{ d.name.toUpperCase() }}
                                         </td>
