@@ -39,9 +39,9 @@
         <div class="chat-message"
              data-ng-repeat="m in sinistre.messages">{{m.name}} : {{m.msg}}</div>
         <input class="chat-input" type="text"
-               data-ng-model = "msg"
+               data-ng-model="msg"
                data-ng-keydown="$event.which === 13 && pushMessage()"
-               placeholder="Tapez un message..">
+               placeholder="Tapez un message.."/>
     </div>
     <div data-ng-switch on="x.step">
         <div data-ng-switch-when="00" class="container">
@@ -52,6 +52,10 @@
                         <div class="pure-1-2">
                             <h4>DOCUMENT DE L'ASSURE</h4>
                             <p>Demander des documents à l'assuré ou au garagiste :</p>
+                            <input class="add-doc" type="text"
+                                   data-ng-model="docname.text"
+                                   data-ng-keydown="$event.which === 13 && addDoc()"
+                                   placeholder="Ajouter un document"/>
                             <table class="pure-table pure-table-horizontal">
                                 <tbody>
                                     <tr data-ng-repeat="d in sinistre.docs">

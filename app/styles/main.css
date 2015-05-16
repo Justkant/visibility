@@ -401,3 +401,11 @@ input[type="search"] {
     font-size: 14px;
     font-weight: 400;
 }
+
+.add-doc {
+    border: 0;
+    height: 50px;
+    line-height: 50px;
+    padding-left: 10px;
+    margin-bottom: 10px;
+}
