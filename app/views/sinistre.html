@@ -108,6 +108,32 @@
         <div data-ng-switch-when="01" class="container">
             <div class="title inverted">REPARATION</div>
             <div class="content">
+                <div class="content-row">
+                    <div class="pure-g">
+                        <div class="pure-u-1-2">
+                            <h4>SUIVI DES REPARATIONS</h4>
+                            <div class="pure-g" data-ng-repeat="r in sinistre.reparation" style="margin-bottom: 10px;">
+                                <div class="rep" data-ng-if="r.validated"></div>
+                                <div class="rep not" data-ng-if="!r.validated"></div>
+                                <div class="rep-block">
+                                    {{ r.name }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pure-u-1-2">
+                            <h4>REPARATION FINIE</h4>
+                            <button class="big-button seepictureicon">Voir les photos</button>
+                            <button class="big-button picturedlicon">
+                                Télécharger les photos
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-row">
+                    <h4>VOITURE EN LIVE</h4>
+                    <p>Visualisez les réparations effectuées grâce à notre concept de visualisation 3D.</p>
+                    <div class="carLive"></div>
+                </div>
             </div>
         </div>
         <div data-ng-switch-when="10" class="container">
@@ -122,7 +148,7 @@
                         <div class="pure-1-4">
                             <a class="big-button dlicon"
                                target="_blank"
-                               data-ng-href="sinistre.rapport">Télécharger le fichier</a>
+                               data-ng-href="{{ sinistre.rapport }}">Télécharger le fichier</a>
                         </div>
                         <div class="pure-1-4">
                             <button class="big-button seeicon">Voir le fichier</button>
@@ -157,9 +183,7 @@
                                     <input type="file" name="my_file" data-ngf-select data-ngf-change="addFile($files, $index)" id="my-file{{$index}}">
                                 </td>
                                 <td data-ng-if="d.file">
-                                    <button class="big-button seeicon">
-                                        Voir le fichier
-                                    </button>
+                                    <button class="big-button seeicon">Voir le fichier</button>
                                 </td>
                                 <td data-ng-if="d.file">
                                     <a class="big-button dlicon"
@@ -179,14 +203,29 @@
             <div class="content">
                 <div class="content-row">
                     <div class="pure-g">
-                        <div class="pure-1-2">
+                        <div class="pure-u-1-2">
                             <h4>SUIVI DES REPARATIONS</h4>
+                            <div class="pure-g" data-ng-repeat="r in sinistre.reparation" style="margin-bottom: 10px;">
+                                <div class="rep" data-ng-if="r.validated"></div>
+                                <div class="rep not" data-ng-if="!r.validated"></div>
+                                <div class="rep-block">
+                                    {{ r.name }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pure-u-1-2">
+                            <h4>REPARATION FINIE</h4>
+                            <button class="big-button seepictureicon">Voir les photos</button>
+                            <button class="big-button picturedlicon">
+                                Télécharger les photos
+                            </button>
                         </div>
                     </div>
                 </div>
                 <div class="content-row">
                     <h4>VOITURE EN LIVE</h4>
                     <p>Visualisez les réparations effectuées grâce à notre concept de visualisation 3D.</p>
+                    <div class="carLive"></div>
                 </div>
             </div>
         </div>
@@ -197,9 +236,10 @@
                     <h4>PRISE DE RENDEZ-VOUS AVEC LE GARAGE</h4>
                     <p>Choisissez le jour qui vous convient pour venir récupérer votre véhicule.</p>
                     <div style="text-align: center;">
-                        <input type="date" name="restdate">
-                        <input type="time" data-ng-model="resttime">
+                        <input type="date" name="restdate" value="{{ sinistre.pickup.date }}" data-ng-model="pickupDate">
+                        <input type="time" data-ng-model="pickupTime">
                     </div>
+                    <button class="rdv-button" data-ng-click="proposeRdv(pickupDate, pickupTime)"></button>
                 </div>
                 <div style="text-align: center;">
                     <h4>Rappel des coordonnées du garage :</h4>
@@ -229,7 +269,7 @@
                     <h4>DOCUMENTS DE L'ASSURE</h4>
                     <table class="pure-table pure-table-horizontal">
                         <tbody>
-                            <tr data-ng-repeat="d in sinistre.expertise.docs">
+                            <tr data-ng-repeat="d in sinistre.docs">
                                 <td class="doc" data-ng-class="{ red: !d.file }">
                                     LE {{ d.name.toUpperCase() }}
                                 </td>
@@ -288,13 +328,17 @@
                         </div>
                         <div class="pure-u-1-2">
                             <h4> REPARATION FINIE </h4>
-                            <button class="big-button picturedlicon" data-ng-click="triggerPictureUpload()">
-                                <span>Joindre les photos</span>
-                            </button>
-                            <input type="file" name="my_picture" data-ngf-select data-ngf-change="addPicture($files)" id="my-picture">
-                            <button class="big-button seepictureicon">
-                                <span>Voir les photos</span>
-                            </button>
+                            <div class="pure-1-4">
+                                <button class="big-button picturedlicon" data-ng-click="triggerPictureUpload()">
+                                    <span>Joindre les photos</span>
+                                </button>
+                                <input type="file" name="my_picture" data-ngf-select data-ngf-change="addPicture($files)" id="my-picture">
+                            </div>
+                            <div class="pure-1-4">
+                                <button class="big-button seepictureicon">
+                                    <span>Voir les photos</span>
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
