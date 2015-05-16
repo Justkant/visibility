@@ -93,6 +93,16 @@
                     <div class="pure-1-2">
                         <h4>RAPPORT D'EXPERTISE</h4>
                         <p>Partager votre rapport d'expertise.</p>
+                        <button class="big-button addicon" data-ng-click="triggerRapport()">
+                            <span data-ng-if="sinistre.rapport">Remplacer le fichier</span>
+                            <span data-ng-if="!sinistre.rapport">Joindre le fichier</span>
+                        </button>
+                        <input type="file" name="rap"
+                               data-ngf-select data-ngf-change="addRapport($files)"
+                               id="rapport">
+                        <a class="big-button dlicon"
+                           download="{{ sinistre.rapport.name }}"
+                           data-ng-href="{{ sinistre.rapport.data }}">Télécharger le fichier</a>
                     </div>
                 </div>
             </div>
@@ -148,8 +158,8 @@
                     </div>
                     <div class="pure-1-4">
                         <a class="big-button dlicon"
-                           target="_blank"
-                           data-ng-href="{{ sinistre.rapport }}">Télécharger le fichier</a>
+                           download="{{ sinistre.rapport.name }}"
+                           data-ng-href="{{ sinistre.rapport.data }}">Télécharger le fichier</a>
                     </div>
                     <div class="pure-1-4">
                         <button class="big-button seeicon">Voir le fichier</button>

@@ -25,6 +25,11 @@ angular.module('visibilityApp')
     $scope.triggerUpload = function (index) {
         angular.element('#my-file' + index).trigger('click');
     };
+
+    $scope.triggerRapport = function () {
+        angular.element('#rapport').trigger('click');
+    };
+
     $scope.triggerPictureUpload = function () {
         angular.element('#my-picture').trigger('click');
     };
@@ -36,6 +41,22 @@ angular.module('visibilityApp')
             reader.onload = function (e) {
                 dataURL = e.target.result;
                 $scope.sinistre.docs[index].file = {
+                    name: files[0].name,
+                    data: dataURL
+                };
+                $scope.sinistre.$save();
+            };
+            reader.readAsDataURL(files[0]);
+        }
+    };
+
+    $scope.addRapport = function(files) {
+        if (files && files[0]) {
+            var reader = new FileReader();
+            var dataURL;
+            reader.onload = function (e) {
+                dataURL = e.target.result;
+                $scope.sinistre.rapport = {
                     name: files[0].name,
                     data: dataURL
                 };
