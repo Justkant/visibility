@@ -1,0 +1,279 @@
+<div class="background">
+    <div class="sidebar">
+        <a href="#/"><div class="logo"></div></a>
+        <div class="user-block">
+            <div class="userimage"
+                 data-ng-class="{expert: user.type === 0, assure: user.type === 1, garage: user.type === 2}"></div>
+            <div class="separator"></div>
+            <p class="name" data-ng-bind="user.name"></p>
+        </div>
+        <p class="sinistre-nb">SINISTRE N° 1296865 </p>
+        <a href="#/" class="sidebar-button">Consulter un autre dossier</a>
+        <div data-ng-switch on="user.type">
+            <div data-ng-switch-when="0">
+                <a class="button-expertise" data-ng-click="x.step = '00'"></a>
+                <div class="first-separator"></div>
+                <a class="button-reparation"
+                   data-ng-class="{on: x.step == '01' || x.step == '02'}"
+                   data-ng-click="x.step = '01'"></a>
+            </div>
+            <div data-ng-switch-when="1">
+                <a class="button-expertise" data-ng-click="x.step = '10'"></a>
+                <div class="first-separator"></div>
+                <a class="button-reparation"
+                   data-ng-class="{on: x.step == '11' || x.step == '12'}"
+                   data-ng-click="x.step = '11'"></a>
+                <div class="second-separator"></div>
+                <a class="button-restitution"
+                   data-ng-class="{on: x.step == '12'}"
+                   data-ng-click="x.step = '12'"></a>
+            </div>
+            <div data-ng-switch-when="2">
+                <a class="button-expertise" data-ng-click="x.step = '20'"></a>
+                <div class="first-separator"></div>
+                <a class="button-reparation"
+                   data-ng-class="{on: x.step == '21' || x.step == '22'}"
+                   data-ng-click="x.step = '21'"></a>
+                <div class="second-separator"></div>
+                <a class="button-restitution"
+                   data-ng-class="{on: x.step == '22'}"
+                   data-ng-click="x.step = '22'"></a>
+            </div>
+        </div>
+    </div>
+    <div data-ng-switch on="x.step">
+        <div data-ng-switch-when="00" class="container">
+            <div class="title inverted">EXPERTISE</div>
+            <div class="content">
+                <div class="content-row">
+                    <div class="pure-g">
+                        <div class="pure-1-2">
+                            <h4>DOCUMENT DE L'ASSURE</h4>
+                            <p>Demander des documents à l'assuré ou au garagiste :</p>
+                            <table class="pure-table pure-table-horizontal">
+                                <tbody>
+                                    <tr data-ng-repeat="d in sinistre.expertise.docs">
+                                        <td class="doc" data-ng-class="{ red: !d.file }">
+                                            LE {{ d.name.toUpperCase() }}
+                                        </td>
+                                        <td data-ng-if="d.file">
+                                            <button class="big-button seeicon">
+                                                Voir le fichier
+                                            </button>
+                                        </td>
+                                        <td data-ng-if="d.file">
+                                            <button class="big-button dlicon" data-ng-click="dlFile($index)">
+                                                Télécharger le fichier
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-row">
+                    <div class="pure-g">
+                        <div class="pure-1-2">
+                            <h4>PASSAGE DE L'EXPERT</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-row">
+                    <div class="pure-g">
+                        <div class="pure-1-2">
+                            <h4>RAPPORT D'EXPERTISE</h4>
+                            <p>Partager votre rapport d'expertise.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-row">
+                    <div class="pure-g">
+                        <div class="pure-1-2">
+                            <h4>VIDEO DE L'EXPERTISE</h4>
+                            <p>Visualisez les explications concernant votre sinistre.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div data-ng-switch-when="01" class="container">
+            <div class="title inverted">REPARATION</div>
+            <div class="content">
+            </div>
+        </div>
+        <div data-ng-switch-when="10" class="container">
+            <div class="title inverted">EXPERTISE</div>
+            <div class="content">
+                <div class="content-row">
+                    <div class="pure-g">
+                        <div class="pure-1-2">
+                            <h4>RAPPORT D'EXPERTISE</h4>
+                            <p>Consultez le rapport établi par l'expert.</p>
+                        </div>
+                        <div class="pure-1-4">
+                            <button class="big-button dlicon">Télécharger le fichier</button>
+                        </div>
+                        <div class="pure-1-4">
+                            <button class="big-button seeicon">Voir le fichier</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-row">
+                    <div class="pure-g">
+                        <div class="pure-1-2">
+                            <h4>VIDEO DE L'EXPERTISE</h4>
+                            <p>Visualisez les explications concernant votre sinistre.</p>
+                            <button class="big-button videodlicon">Télécharger la vidéo</button>
+                        </div>
+                        <div class="pure-1-2">
+
+                        </div>
+                    </div>
+                </div>
+                <div class="content-row">
+                    <h4>DEMANDE DE DOCUMENTS</h4>
+                    <table class="pure-table pure-table-horizontal">
+                        <tbody>
+                            <tr data-ng-repeat="d in sinistre.expertise.docs">
+                                <td class="doc" data-ng-class="{ red: !d.file }">
+                                    VOTRE {{ d.name.toUpperCase() }}
+                                </td>
+                                <td>
+                                    <button class="big-button addicon"
+                                            data-ng-click="triggerUpload($index)">
+                                        <span data-ng-if="d.file">Remplacer le fichier</span>
+                                        <span data-ng-if="!d.file">Joindre le fichier</span>
+                                    </button>
+                                    <input type="file" name="my_file"
+                                           data-ngf-select data-ngf-change="addFile($files, $index)"
+                                           id="my-file{{$index}}">
+                                </td>
+                                <td data-ng-if="d.file">
+                                    <button class="big-button seeicon">
+                                        Voir le fichier
+                                    </button>
+                                </td>
+                                <td data-ng-if="d.file">
+                                    <button class="big-button dlicon" data-ng-click="dlFile($index)">
+                                        Télécharger le fichier
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div data-ng-switch-when="11" class="container">
+            <div class="title inverted">REPARATION</div>
+            <div class="content">
+                <div class="content-row">
+                    <div class="pure-g">
+                        <div class="pure-1-2">
+                            <h4>SUIVI DES REPARATIONS</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-row">
+                    <h4>VOITURE EN LIVE</h4>
+                    <p>Visualisez les réparations effectuées grâce à notre
+                        concept de visualisation 3D.</p>
+                </div>
+            </div>
+        </div>
+        <div data-ng-switch-when="12" class="container">
+            <div class="title inverted">RESTITUTION</div>
+            <div class="content">
+                <div class="content-row">
+                    <h4>PRISE DE RENDEZ-VOUS AVEC LE GARAGE</h4>
+                    <p>Choisissez le jour qui vous convient pour venir récupérer votre véhicule.</p>
+                    <div style="text-align: center;">
+                        <input type="date" name="restdate">
+                        <input type="time" data-ng-model="resttime">
+                    </div>
+                </div>
+                <div style="text-align: center;">
+                    <h4>Rappel des coordonnées du garage :</h4>
+                </div>
+            </div>
+        </div>
+        <div data-ng-switch-when="20" class="container">
+            <div class="title inverted">EXPERTISE</div>
+            <div class="content">
+                <div class="content-row">
+                    <div class="pure-g">
+                        <div class="pure-1-2">
+                            <h4>RAPPORT D'EXPERTISE</h4>
+                            <p>Consultez le rapport établi par l'expert.</p>
+                        </div>
+                        <div class="pure-1-4">
+                            <button class="big-button dlicon">Télécharger le fichier</button>
+                        </div>
+                        <div class="pure-1-4">
+                            <button class="big-button seeicon">Voir le fichier</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-row">
+                    <h4>DOCUMENTS DE L'ASSURE</h4>
+                    <table class="pure-table pure-table-horizontal">
+                        <tbody>
+                            <tr data-ng-repeat="d in sinistre.expertise.docs">
+                                <td class="doc" data-ng-class="{ red: !d.file }">
+                                    LE {{ d.name.toUpperCase() }}
+                                </td>
+                                <td>
+                                    <button class="big-button addicon"
+                                            data-ng-click="triggerUpload($index)">
+                                        <span data-ng-if="d.file">Remplacer le fichier</span>
+                                        <span data-ng-if="!d.file">Joindre le fichier</span>
+                                    </button>
+                                    <input type="file" name="my_file"
+                                           data-ngf-select data-ngf-change="addFile($files, $index)"
+                                           id="my-file{{$index}}">
+                                </td>
+                                <td data-ng-if="d.file">
+                                    <button class="big-button seeicon">
+                                        Voir le fichier
+                                    </button>
+                                </td>
+                                <td data-ng-if="d.file">
+                                    <button class="big-button dlicon" data-ng-click="dlFile($index)">
+                                        Télécharger le fichier
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="content-row">
+                    <h4>PASSAGE DE L'EXPERT</h4>
+                </div>
+            </div>
+        </div>
+        <div data-ng-switch-when="21" class="container">
+            <div class="title inverted">REPARATION</div>
+            <div class="content">
+                <div class="content-row">
+                    <div class="pure-g">
+                        <div class="pure-1-2">
+                            <h4>SUIVI DES REPARATIONS</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="content-row">
+                    <h4>VOITURE EN LIVE</h4>
+                    <p>Visualisez les réparations effectuées grâce à notre
+                        concept de visualisation 3D.</p>
+                </div>
+            </div>
+        </div>
+        <div data-ng-switch-when="22" class="container">
+            <div class="title inverted">RESTITUTION</div>
+            <div class="content">
+            </div>
+        </div>
+    </div>
+</div>
+

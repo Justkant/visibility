@@ -1,0 +1,126 @@
+.login-background {
+    background: url(../images/Noir-et-blanc-1.png) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+}
+
+.login-logo {
+    position: fixed;
+    width: 151px;
+    height: 86px;
+    left: 81px;
+    top: 74px;
+    background: url(../images/logo-copie.png) no-repeat;
+}
+
+.login-footer {
+    position: fixed;
+    background-color: rgba(227, 21, 25, 0.75);
+    height: 184px;
+    width: 100%;
+    bottom: 0;
+    left: 0;
+}
+
+.login-button.empty {
+    background-color: transparent;
+    color: white;
+    text-decoration: none;
+}
+
+.login-button {
+    background-color: #ffffff;
+    border-color: #ffffff;
+    border-style: solid;
+    border-width: 2px;
+    color: red;
+    width: calc(33% - 2px);
+    padding: 0;
+    font-weight: bold;
+    font-size: smaller;
+    cursor: pointer;
+}
+
+
+input.login {
+    display: inline-block;
+    margin: 0 auto;
+    border-radius: 0;
+    background-color: #ffffff;
+    color: rgba(227, 21, 25, 1);
+    width: calc(100% - 14px);
+    height: 17px;
+    padding: 5px;
+}
+
+.login-icons {
+    position: fixed;
+    left: 30%;
+    bottom: 184px;
+    width: 40%;
+}
+
+.login-expert {
+    background: url(../images/expert-off.png) no-repeat center;
+    background-size: contain;
+    position: absolute;
+    height: 138px;
+    width: 33%;
+    bottom: 0;
+}
+
+.login-assure {
+    background: url(../images/assure-off.png) no-repeat center;
+    background-size: contain;
+    position: absolute;
+    height: 138px;
+    left: 33%;
+    width: 33%;
+    bottom: 0;
+}
+
+.login-garage {
+    background: url(../images/garagiste-off.png) no-repeat center;
+    background-size: contain;
+    position: absolute;
+    height: 138px;
+    left: 66%;
+    width: 33%;
+    bottom: 0;
+}
+
+.login-expert.on {
+    background: url(../images/expert-on.png) no-repeat center;
+    background-size: contain;
+    height: 155px;
+}
+
+.login-assure.on {
+    background: url(../images/assure-on.png) no-repeat center;
+    background-size: contain;
+    height: 155px;
+}
+
+.login-garage.on {
+    background: url(../images/garagiste-on.png) no-repeat center;
+    background-size: contain;
+    height: 155px;
+}
+
+.center {
+    position: fixed;
+    width: 40%;
+    left: 30%;
+}
+
+.pad-10 {
+    padding: 10px 0;
+}
+
+.right {
+    text-align: right;
+}

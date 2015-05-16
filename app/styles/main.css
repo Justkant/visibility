@@ -1,0 +1,294 @@
+html, body, .fullscreen {
+    margin: 0;
+    height: 100%;
+}
+
+input[type='file'] {
+    display: none;
+}
+
+.background {
+    background:url(../images/Background.png) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+}
+
+.sidebar {
+    position: fixed;
+    background-color: rgba(227, 21, 25, 0.75);
+    height: 100%;
+    width: 250px;
+    left: 0px;
+    top: 0px;
+}
+
+.sidebar .logo {
+    background: url(../images/logo-copie.png) no-repeat center;
+    background-size: auto 80%;
+    height: 109px;
+}
+
+.sidebar .user-block {
+    position: fixed;
+    background-color: #ffffff;
+    height: 81px;
+    width: 250px;
+    top: 109px;
+    left: 0px;
+}
+
+.user-block .userimage {
+    position: fixed;
+    width: 59px;
+    height: 59px;
+    top: 121px;
+    left: 21px;
+}
+
+.userimage.assure {
+    background: url(../images/photoassure.png);
+}
+
+.userimage.expert {
+    background: url(../images/photoexpert.png);
+}
+
+.userimage.garage {
+    background: url(../images/photogarage.png);
+}
+
+.user-block .fa-sign-out {
+    position: fixed;
+    top: 133px;
+    left: 200px;
+    cursor: pointer;
+}
+
+.red {
+    color: rgba(227, 21, 25, 1);
+}
+
+.separator {
+    position: fixed;
+    width: 1px;
+    height: 48px;
+    left: 90px;
+    top: 127px;
+    background-color: rgba(227, 21, 25, 1);
+}
+
+.container {
+    position: fixed;
+    width: 67.8%;
+    left: 319px;
+    top: 57px;
+}
+
+.title {
+    width: calc(100% - 40px);
+    height: auto;
+    background-color: rgba(255, 255, 255, 0.75);
+    text-align: center;
+    padding: 20px;
+    color: #e31519;
+    font-weight: bold;
+}
+
+.content {
+    width: calc(100% - 10%);
+    padding: 2% 5%;
+    background-color: rgba(255, 255, 255, 0.75);
+}
+
+.user-block .name {
+    font-weight: 400;
+    font-size: 18px;
+    top: 121px;
+    left: 102px;
+    position: fixed;
+    color: #e31519;
+}
+
+.sidebar .text {
+    text-align: center;
+    position: fixed;
+    top: 290px;
+    left: 34px;
+    width: 181px;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+input[type="search"] {
+    border-color: #e31519;
+    border-style: solid;
+    border-width: 1px;
+    width: 30%;
+}
+
+.inverted {
+    background-color: rgba(227, 21, 25, 0.75);
+    color: #ffffff;
+}
+
+.sinistre-nb {
+    position: fixed;
+    left: 40px;
+    top: 231px;
+    font-size: 16px;
+    font-weight: 700;
+    color: #ffffff;
+}
+
+.sidebar-button {
+    position: fixed;
+    padding: 2px 5px;
+    bottom: 24px;
+    left: 36px;
+    background-color: #ffffff;
+    border-color: #ffffff;
+    border-style: solid;
+    border-width: 2px;
+    color: red;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: smaller;
+    cursor: pointer;
+}
+
+.button-expertise {
+    background: url(../images/btn_EXPERTISE-ON.png) no-repeat center;
+    position: fixed;
+    top: 300px;
+    left: 75px;
+    cursor: pointer;
+    width: 100px;
+    height: 112px;
+}
+
+.button-reparation {
+    background: url(../images/btn_REPARATION-OFF.png) no-repeat center;
+    position: fixed;
+    cursor: pointer;
+    width: 100px;
+    height: 112px;
+    top: 450px;
+    left: 75px;
+}
+
+.button-reparation.on {
+    background: url(../images/btn_REPARATION-ON.png) no-repeat center;
+}
+
+.button-restitution {
+    background: url(../images/btn_RENDU-OFF.png) no-repeat center;
+    position: fixed;
+    cursor: pointer;
+    width: 100px;
+    height: 112px;
+    top: 600px;
+    left: 75px;
+}
+
+.button-restitution.on {
+    background: url(../images/btn_RENDU-ON.png) no-repeat center;
+}
+
+.first-separator {
+    background: url(../images/Rectangle-9.png);
+    height: 41px;
+    width: 3px;
+    position: fixed;
+    top: 410px;
+    left: 123px;
+}
+
+.second-separator {
+    background: url(../images/Rectangle-9.png);
+    height: 41px;
+    width: 3px;
+    position: fixed;
+    top: 560px;
+    left: 123px;
+}
+
+.content-row {
+    background-color: rgba(154, 154, 154, 0.5);
+    padding: 10px 20px;
+    margin-bottom: 20px;
+}
+
+.big-button {
+    background-color: rgba(255, 255, 255, 0.75);
+    color: #e31519;
+    width: 154px;
+    height: 51px;
+    border: 0;
+    margin: 20px;
+    padding-left: 50px;
+    text-align: left;
+}
+
+.big-button.dlicon {
+    background: url(../images/icon-dl-button.png) no-repeat 10px center;
+    background-color: rgba(255, 255, 255, 0.75);
+}
+
+.big-button.seeicon {
+    background: url(../images/picto-voir-le-fichier.png) no-repeat 10px center;
+    background-color: rgba(255, 255, 255, 0.75);
+}
+
+.big-button.videodlicon {
+    background: url(../images/picto-DL-vid%EF%BF%BFffc3%EF%BF%BFffa9o.png) no-repeat 10px center;
+    background-color: rgba(255, 255, 255, 0.75);
+}
+
+.big-button.addicon {
+    background: url(../images/picto-ajout-fichier-copie.png) no-repeat 10px center;
+    background-color: rgba(255, 255, 255, 0.75);
+}
+
+.pure-g {
+    letter-spacing: normal;
+}
+
+.doc {
+    background-color: white !important;
+    color: #000000;
+}
+
+.doc.red {
+    background-color: rgba(227, 21, 25, 0.5) !important;
+    color: #ffffff;
+}
+
+.rep {
+    width: 44px;
+    height: 41px;
+    background: url(../images/valid.png) no-repeat center;
+}
+
+.rep.not {
+    background: url(../images/notvalid.png) no-repeat center;
+}
+
+.rep-block {
+    width: 200px;
+    height: 50px;
+    font-size: 14px;
+    font-weight: 400;
+}

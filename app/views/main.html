@@ -1,0 +1,43 @@
+<div class="background">
+    <div class="sidebar">
+        <div class="logo"></div>
+        <div class="user-block">
+            <div class="userimage"
+                 data-ng-class="{expert: user.type === 0, assure: user.type === 1, garage: user.type === 2}"></div>
+            <div class="separator"></div>
+            <p class="name" data-ng-bind="user.name"></p>
+            <i class="fa fa-sign-out fa-2x red" data-ng-click="logout()"></i>
+        </div>
+        <p class="text">Bienvenue sur Visibility, cette interface a été crée par Direct Assurance afin de faciliter la communication entre les différents acteurs lors d'un suivi de sinistre.</p>
+    </div>
+    <div class="container">
+        <div class="title">
+            Consulter un dossier de sinistre
+        </div>
+        <div class="content">
+            <input type="search" placeholder="Recherche par n° de sinistre">
+            <button class="login-button" data-ng-show="user.type === 1"
+                    data-ng-click="newSinistre()">NOUVEAU SINISTRE</button>
+            <h4>SINISTRES EN COURS:</h4>
+            <table class="pure-table pure-table-horizontal full-width">
+                <tbody>
+                    <tr class="pointer" data-ng-repeat="s in sinistres"
+                        data-ng-click="goToSinister(s.$id)">
+                        <td>Sinistre n°{{s.$id}}</td>
+                        <td>{{s.date}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <h4>HISTORIQUES DES SINISTRES:</h4>
+            <table class="pure-table pure-table-horizontal full-width">
+                <tbody>
+                    <tr class="pointer" data-ng-repeat="sc in sinistresClosed"
+                        data-ng-click="goToSinister(sc.$id)">
+                        <td>Sinistre n°{{sc.$id}}</td>
+                        <td>{{sc.date}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
