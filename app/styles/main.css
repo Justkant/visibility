@@ -262,7 +262,7 @@ a.big-button {
 }
 
 .big-button.videodlicon {
-    background: url(../images/picto-DL-vid%EF%BF%BFffc3%EF%BF%BFffa9o.png) no-repeat 10px center;
+    background: url(../images/videodl.png) no-repeat 10px center;
     background-color: rgba(255, 255, 255, 0.75);
 }
 
