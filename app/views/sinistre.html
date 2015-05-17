@@ -86,8 +86,12 @@
                     <div class="pure-1-2">
                         <h4>PASSAGE DE L'EXPERT</h4>
                         <div style="text-align: center;">
-                            <input type="date" name="restdate" value="{{ sinistre.pickup.date }}" data-ng-model="pick.date">
-                            <input type="time" value="{{ sinistre.pickup.time }}" data-ng-model="pick.time">
+                            <input type="date" name="restdate"
+                                   data-ng-value="sinistre.pickup.date"
+                                   data-ng-model="pick.date">
+                            <input type="time"
+                                   data-ng-value="sinistre.pickup.time"
+                                   data-ng-model="pick.time">
                         </div>
                         <div style="text-align: center;">
                             <button class="rdv-button" data-ng-click="proposeExpertRdv(pick.date, pick.time)">PROPOSER UN RENDEZ-VOUS</button>
@@ -254,8 +258,12 @@
                 <h4>PRISE DE RENDEZ-VOUS AVEC LE GARAGE</h4>
                 <p>Choisissez le jour qui vous convient pour venir récupérer votre véhicule.</p>
                 <div style="text-align: center;">
-                    <input type="date" name="restdate" value="{{ sinistre.pickup.date }}" data-ng-model="pick.date">
-                    <input type="time" value="{{ sinistre.pickup.time }}" data-ng-model="pick.time">
+                    <input type="date" name="restdate"
+                           data-ng-value="sinistre.pickup.date"
+                           data-ng-model="pick.date">
+                    <input type="time"
+                           data-ng-value="sinistre.pickup.time"
+                           data-ng-model="pick.time">
                 </div>
                 <div style="text-align: center;">
                     <button class="rdv-button" data-ng-click="proposeRdv(pick.date, pick.time)">PROPOSER UN RENDEZ-VOUS</button>
@@ -342,7 +350,8 @@
                         </div>
                         <div class="pure-g">
                             <div class="rep not" data-ng-if="!r.validated"></div>
-                            <input type="text" class="rep-block" data-ng-model="newReparationName" data-ng-value="newReparationName" style="margin-right: 10px;">
+                            <input type="text" class="rep-block" data-ng-model="newReparationName"
+                                   data-ng-value="newReparationName" style="margin-right: 10px;">
                             <div class="rep" data-ng-click="createNewReparation(newReparationName)"></div>
                         </div>
                     </div>
@@ -376,8 +385,9 @@
                 <h4>RESTITUTION DE LA VOITURE DE L'ASSURE</h4>
                 <p>Mr {{ user.name }} a choisi son jour et heure de passage</p>
                 <div style="text-align: center;">
-                    <input type="date" name="restdate" value="{{ sinistre.pickup.date }}" readonly>
-                    <input type="time" value="{{ sinistre.pickup.time }}" readonly>
+                    <input type="date" name="restdate"
+                           data-ng-value="sinistre.pickup.date" readonly>
+                    <input type="time" data-ng-value="sinistre.pickup.time" readonly>
                 </div>
                 <div style="text-align: center;">
                     <button data-ng-click="toggleRdv()" class="rdv-button">
