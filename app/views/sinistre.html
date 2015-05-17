@@ -64,9 +64,9 @@
                                         LE {{ d.name.toUpperCase() }}
                                     </td>
                                     <td data-ng-if="d.file">
-                                        <button class="big-button seeicon">
+                                        <a class="big-button seeicon" data-ng-href="{{ d.file.data }}" target="_blank">
                                             Voir le fichier
-                                        </button>
+                                        </a>
                                     </td>
                                     <td data-ng-if="d.file">
                                         <a class="big-button dlicon"
@@ -115,9 +115,13 @@
             </div>
             <div class="content-row">
                 <div class="pure-g">
-                    <div class="pure-1-2">
+                    <div class="pure-u-1-2">
                         <h4>VIDEO DE L'EXPERTISE</h4>
                         <p>Visualisez les explications concernant votre sinistre.</p>
+                        <button class="big-button videodlicon">Ajouter la vidéo</button>
+                    </div>
+                    <div class="pure-u-1-2">
+                        <img src="../images/blog-roadstr.png" alt="" style="width: 100%; border-bottom: 2px solid red">
                     </div>
                 </div>
             </div>
@@ -140,10 +144,9 @@
                     </div>
                     <div class="pure-u-1-2">
                         <h4>REPARATION FINIE</h4>
-                        <button class="big-button seepictureicon">Voir les photos</button>
-                        <button class="big-button picturedlicon">
-                            Télécharger les photos
-                        </button>
+                        <a class="big-button seepictureicon" data-ng-href="{{ sinistre.pictures.data }}" target="_blank">Voir la photos</a>
+                        <a class="big-button picturedlicon" data-ng-href="{{ sinistre.pictures.data }}" download="{{ sinistre.pickup.name }}">Télécharger la photo
+                        </a>
                     </div>
                 </div>
             </div>
@@ -169,7 +172,7 @@
                            data-ng-href="{{ sinistre.rapport.data }}">Télécharger le fichier</a>
                     </div>
                     <div class="pure-1-4">
-                        <button class="big-button seeicon">Voir le fichier</button>
+                        <a data-ng-href="{{ sinistre.rapport.data }}" target="_blank" class="big-button seeicon">Voir le fichier</a>
                     </div>
                 </div>
             </div>
@@ -201,7 +204,7 @@
                                 <input type="file" name="my_file" data-ngf-select data-ngf-change="addFile($files, $index)" id="my-file{{$index}}">
                             </td>
                             <td data-ng-if="d.file">
-                                <button class="big-button seeicon">Voir le fichier</button>
+                                <a data-ng-href="{{ d.file.data }}" target="_blank" class="big-button seeicon">Voir le fichier</a>
                             </td>
                             <td data-ng-if="d.file">
                                 <a class="big-button dlicon"
@@ -233,10 +236,8 @@
                     </div>
                     <div class="pure-u-1-2">
                         <h4>REPARATION FINIE</h4>
-                        <button class="big-button seepictureicon">Voir les photos</button>
-                        <button class="big-button picturedlicon">
-                            Télécharger les photos
-                        </button>
+                        <a class="big-button seepictureicon" data-ng-href="{{ sinistre.pictures.data }}" target="_blank">Voir la photo</a>
+                        <a class="big-button picturedlicon" data-ng-href="{{ sinistre.pictures.data }}" download="{{ data.pictures.name }}">Télécharger la photos</a>
                     </div>
                 </div>
             </div>
@@ -263,6 +264,20 @@
             </div>
             <div style="text-align: center;">
                 <h4>Rappel des coordonnées du garage :</h4>
+                <div class="pure-g">
+                    <div class="pure-u-1-2">
+                        <img src="../images/localisation.png">
+                        <br/>
+                        <span>58 Rue des Chantiers</span>
+                        <br/>
+                        <span>78000 Versailles</span>
+                    </div>
+                    <div class="pure-u-1-2">
+                        <img src="../images/t%EF%BF%BFffc3%EF%BF%BFffa9l.png">
+                        <br/>
+                        <span>01.00.00.00.00</span>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -277,11 +292,11 @@
                     </div>
                     <div class="pure-1-4">
                         <a class="big-button dlicon"
-                           target="_blank"
-                           data-ng-href="{{sinistre.rapport}}">Télécharger le fichier</a>
+                           download="{{sinistre.rapport.name}}"
+                           data-ng-href="{{sinistre.rapport.data}}">Télécharger le fichier</a>
                     </div>
                     <div class="pure-1-4">
-                        <button class="big-button seeicon">Voir le fichier</button>
+                        <a data-ng-href="{{sinistre.rapport.data}}" target="_blank" class="big-button seeicon">Voir le fichier</a>
                     </div>
                 </div>
             </div>
@@ -304,9 +319,9 @@
                                        id="my-file{{$index}}">
                             </td>
                             <td data-ng-if="d.file">
-                                <button class="big-button seeicon">
+                                <a class="big-button seeicon" data-ng-href="{{d.file.data}}" target="_blank">
                                     Voir le fichier
-                                </button>
+                                </a>
                             </td>
                             <td data-ng-if="d.file">
                                 <a class="big-button dlicon"
@@ -350,14 +365,14 @@
                         <h4> REPARATION FINIE </h4>
                         <div class="pure-1-4">
                             <button class="big-button picturedlicon" data-ng-click="triggerPictureUpload()">
-                                <span>Joindre les photos</span>
+                                <span>Joindre la photo</span>
                             </button>
                             <input type="file" name="my_picture" data-ngf-select data-ngf-change="addPicture($files)" id="my-picture">
                         </div>
                         <div class="pure-1-4">
-                            <button class="big-button seepictureicon">
-                                <span>Voir les photos</span>
-                            </button>
+                            <a class="big-button seepictureicon" data-ng-href="{{ sinistre.pictures.data }}" target="_blank">
+                                <span>Voir la photo</span>
+                            </a>
                         </div>
                     </div>
                 </div>

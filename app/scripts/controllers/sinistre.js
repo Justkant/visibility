@@ -92,14 +92,14 @@ angular.module('visibilityApp')
             reader.onload = function (e) {
                 dataURL = e.target.result;
                 if (!$scope.sinistre.pictures) {
-                    $scope.sinistre.pictures = [];
+                    $scope.sinistre.pictures = {};
                     $scope.sinistre.$save();
                 }
 
-                $scope.sinistre.pictures.push({
+                $scope.sinistre.pictures = {
                     name: files[0].name,
                     data: dataURL
-                });
+                };
                 $scope.sinistre.$save();
             };
             reader.readAsDataURL(files[0]);
