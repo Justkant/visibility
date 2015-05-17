@@ -9,13 +9,13 @@
     <div class="login-footer">
         <form class="center">
             <div class="pad-10">
-                <button class="login-button"
+                <button type="button" class="login-button"
                         data-ng-click="type = 0"
                         data-ng-class="{empty: type !== 0}">Expert</button>
-                <button class="login-button"
+                <button type="button" class="login-button"
                         data-ng-class="{empty: type !== 1}"
                         data-ng-click="type = 1">Assuré</button>
-                <button class="login-button"
+                <button type="button" class="login-button"
                         data-ng-click="type = 2"
                         data-ng-class="{empty: type !== 2}">Garagiste</button>
             </div>
@@ -25,11 +25,15 @@
             </div>
             <div class="pad-10">
                 <input class="login" data-ng-model="user.pass"
-                       type="password" placeholder="Mot de passe">
+                       type="password" placeholder="Mot de passe"
+                       data-ng-keydown="$event.which === 13 && passwordLogin()">
             </div>
             <div class="pad-10 right">
-                <button class="login-button" data-ng-click="createAccount()">CREER UN COMPTE</button>
-                <button class="login-button" data-ng-click="passwordLogin()"
+                <button type="button"
+                        class="login-button"
+                        data-ng-click="createAccount()">CREER UN COMPTE</button>
+                <button class="login-button"
+                        data-ng-click="passwordLogin()"
                         type="submit">SE CONNECTER</button>
             </div>
         </form>
