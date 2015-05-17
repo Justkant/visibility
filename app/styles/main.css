@@ -272,7 +272,7 @@ a.big-button {
 }
 
 .big-button.picturedlicon {
-    background: url(../images/Objet-dynamique-vectoriel.png) no-repeat 10px center;
+    background: url(../images/picturedl.png) no-repeat 10px center;
     background-color: rgba(255, 255, 255, 0.75);
     padding-left: 70px;
 }
