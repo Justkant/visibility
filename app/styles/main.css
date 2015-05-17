@@ -357,6 +357,10 @@ a.big-button {
     margin-top: 10px;
 }
 
+.pure-table {
+    border: 0;
+}
+
 .chat {
     -webkit-touch-callout: none;
     -webkit-user-select: none;
