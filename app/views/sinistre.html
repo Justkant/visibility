@@ -85,6 +85,13 @@
                 <div class="pure-g">
                     <div class="pure-1-2">
                         <h4>PASSAGE DE L'EXPERT</h4>
+                        <div style="text-align: center;">
+                            <input type="date" name="restdate" value="{{ sinistre.pickup.date }}" data-ng-model="pick.date">
+                            <input type="time" value="{{ sinistre.pickup.time }}" data-ng-model="pick.time">
+                        </div>
+                        <div style="text-align: center;">
+                            <button class="rdv-button" data-ng-click="proposeExpertRdv(pick.date, pick.time)">PROPOSER UN RENDEZ-VOUS</button>
+                        </div>
                     </div>
                 </div>
             </div>
